@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Prof. Dr. Bülent Kara",
+    "branch": "Çocuk Nörolojisi",
+    "city": "Kocaeli",
+    "type": "Devlet",
+    "hospital": "Kocaeli üniversitesi Araştırma Ve Uygulama hastanesi"
+  },
+  {
+    "name": "Sanem Keskin Yılmaz",
+    "branch": "Çocuk Nörolojisi",
+    "city": "İzmir",
+    "type": "Devlet",
+    "hospital": "Ege Üniversitesi Hastanesi"
+  }
+]
