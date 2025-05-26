@@ -13,14 +13,17 @@
     .card { background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     .card .name { font-weight: bold; font-size: 18px; }
     .card .hospital { color: #666; font-size: 14px; }
+    button { padding: 8px 12px; border: none; background: #d33; color: white; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #b22; }
   </style>
 </head>
 <body>
   <h1>Doktorunu Bul</h1>
   <div class="filters">
-    <select id="cityFilter"><option value="">Şehir</option></select>
-    <select id="branchFilter"><option value="">Branş</option></select>
+    <select id="cityFilter" multiple><option disabled>Şehir</option></select>
+    <select id="branchFilter" multiple><option disabled>Branş</option></select>
     <select id="typeFilter"><option value="">Tür</option></select>
+    <button id="resetFilters">Filtreleri Temizle</button>
   </div>
   <div id="doctorList" class="grid"></div>
   <script>
@@ -37,27 +40,27 @@
       cityFilter.innerHTML += uniqueSorted("city").map(c => `<option value="${c}">${c}</option>`).join("");
       branchFilter.innerHTML += uniqueSorted("branch").map(b => `<option value="${b}">${b}</option>`).join("");
       typeFilter.innerHTML += uniqueSorted("type").map(t => `<option value="${t}">${t}</option>`).join("");
-}
+    }
 
     function renderDoctors() {
-      const city = cityFilter.value;
-      const branch = branchFilter.value;
+      const selectedCities = Array.from(cityFilter.selectedOptions).map(opt => opt.value);
+      const selectedBranches = Array.from(branchFilter.selectedOptions).map(opt => opt.value);
       const type = typeFilter.value;
 
       const filtered = doctors.filter(d =>
-        (!city || d.city === city) &&
-        (!branch || d.branch === branch) &&
+        (selectedCities.length === 0 || selectedCities.includes(d.city)) &&
+        (selectedBranches.length === 0 || selectedBranches.includes(d.branch)) &&
         (!type || d.type === type)
       );
 
-      doctorList.innerHTML = filtered.map(d => `
+      doctorList.innerHTML = filtered.map(d => \`
         <div class="card">
-          <div class="name">${d.name}</div>
-          <div>${d.branch}</div>
-          <div>${d.city} - ${d.type}</div>
-          <div class="hospital">${d.hospital}</div>
+          <div class="name">\${d.name}</div>
+          <div>\${d.branch}</div>
+          <div>\${d.city} - \${d.type}</div>
+          <div class="hospital">\${d.hospital}</div>
         </div>
-      `).join("");
+      \`).join("");
     }
 
     function init() {
@@ -71,6 +74,13 @@
     }
 
     [cityFilter, branchFilter, typeFilter].forEach(el => el.addEventListener("change", renderDoctors));
+
+    document.getElementById("resetFilters").addEventListener("click", () => {
+      [...cityFilter.options].forEach(option => option.selected = false);
+      [...branchFilter.options].forEach(option => option.selected = false);
+      typeFilter.value = "";
+      renderDoctors();
+    });
 
     init();
   </script>
