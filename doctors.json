@@ -12,5 +12,61 @@
     "city": "İzmir",
     "type": "Devlet",
     "hospital": "Ege Üniversitesi Hastanesi"
+  },
+  {
+    "name": "Dr. Fitnas Uluğ",
+    "branch": "Çocuk Nörolojisi",
+    "city": "İstanbul",
+    "type": "Devlet",
+    "hospital": "Prof dr cemil tşçıoğlu şehir hastanesi"
+  },
+  {
+    "name": "Semra Saygın",
+    "branch": "Çocuk Nörolojisi",
+    "city": "Adana",
+    "type": "Özel",
+    "hospital": "Çukurova başkent hastanesi"
+  },
+  {
+    "name": "Serkan Kırma",
+    "branch": "Çocuk Nörolojisi",
+    "city": "Elazığ",
+    "type": "Devlet",
+    "hospital": "Fethi Sekin Şehir Hastanesi"
+  },
+  {
+    "name": "Ergun Nacarküçük",
+    "branch": "Çocuk Nörolojisi",
+    "city": "Bursa",
+    "type": "Özel",
+    "hospital": "Özel muayenesi"
+  },
+  {
+    "name": "Hasan Çelik",
+    "branch": "Çocuk Nörolojisi",
+    "city": "Diyarbakır",
+    "type": "Devlet",
+    "hospital": "Diyarbakır çocuk hastanesi"
+  },
+  {
+    "name": "Burak Tatlı",
+    "branch": "Çocuk Nörolojisi",
+    "city": "İstanbul",
+    "type": "Özel",
+    "hospital": "Zatay klinik özel klinik"
+  },
+  {
+    "name": "Safiye Güneş Sağer",
+    "branch": "Çocuk Nörolojisi",
+    "city": "İstanbul",
+    "type": "Devlet",
+    "hospital": "Kartal Lütfi Kırdar şehir Hastanesi"
+  },
+  {
+    "name": "Prof. Dr. Ayşin Dervent",
+    "branch": "Çocuk Nörolojisi",
+    "city": "İstanbul",
+    "type": "Özel",
+    "hospital": "Caferağa, Gen. Asım Gündüz Cd. No.81/2, 34710 Kadıköy"
   }
 ]
