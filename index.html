@@ -31,13 +31,13 @@
     const typeFilter = document.getElementById("typeFilter");
     const doctorList = document.getElementById("doctorList");
 
-    const unique = (key) => [...new Set(doctors.map(d => d[key]))];
+    const uniqueSorted = (key) => [...new Set(doctors.map(d => d[key]))].sort((a, b) => a.localeCompare(b, 'tr'));
 
     function populateFilters() {
-      cityFilter.innerHTML += unique("city").map(c => `<option value="${c}">${c}</option>`).join("");
-      branchFilter.innerHTML += unique("branch").map(b => `<option value="${b}">${b}</option>`).join("");
-      typeFilter.innerHTML += unique("type").map(t => `<option value="${t}">${t}</option>`).join("");
-    }
+      cityFilter.innerHTML += uniqueSorted("city").map(c => `<option value="${c}">${c}</option>`).join("");
+      branchFilter.innerHTML += uniqueSorted("branch").map(b => `<option value="${b}">${b}</option>`).join("");
+      typeFilter.innerHTML += uniqueSorted("type").map(t => `<option value="${t}">${t}</option>`).join("");
+}
 
     function renderDoctors() {
       const city = cityFilter.value;
